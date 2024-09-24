@@ -8,22 +8,37 @@ export default function MessageList({
   messageList: Message[];
   userId: string;
 }) {
-  const messagesEndRef = useRef<HTMLLIElement | null>(null);
+  const messageEndRef = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView();
+    messageEndRef.current?.scrollIntoView();
   }, [messageList]);
 
+  /**
+ * Checks if the message at the given index is the first message
+ * in the message list or if the sender changes
+ *
+ * @param index - Index of the target message
+ * @returns True if it's the first message or the moment when sender changes, otherwise false
+ */
   function isFirst(index: number) {
     return (
-      index === 0 || messageList[index - 1].sender !== messageList[index].sender
+      index === 0 // first message in total
+      || messageList[index - 1].sender !== messageList[index].sender // When the sender changes
     );
   }
 
+  /**
+ * Checks if the message at the given index is the last message
+ * in the message list or if the sender changes
+ *
+ * @param index - Index of the target message
+ * @returns True if it's the last message or the moment when changes, otherwise false
+ */
   function isLast(index: number) {
     return (
-      index === messageList.length - 1
-      || messageList[index].sender !== messageList[index + 1].sender
+      index === messageList.length - 1 // last message in total
+      || messageList[index].sender !== messageList[index + 1].sender // When the sender changes
     );
   }
 
@@ -38,7 +53,7 @@ export default function MessageList({
           isLast={isLast(messageIndex)}
         />
       ))}
-      <li ref={messagesEndRef} />
+      <li ref={messageEndRef} />
     </ul>
   );
 }

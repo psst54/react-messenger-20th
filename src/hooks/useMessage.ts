@@ -6,7 +6,7 @@ export default function useMessage() {
   const [messageList, setMessageList] = useState<Message[]>(data);
 
   function addMessage(message: Message) {
-    setMessageList(messageList.concat(message));
+    setMessageList([...messageList, message]);
   }
 
   return { messageList, addMessage };

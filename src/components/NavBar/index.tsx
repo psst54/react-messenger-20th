@@ -4,7 +4,10 @@ import VideoIcon from '@assets/VideoIcon';
 
 export default function NavBar() {
   return (
-    <nav className="flex items-center justify-between w-full h-[55px] px-3.5 border-b border-colors-blue_gray">
+    <nav className="flex items-center justify-between
+      w-full h-[55px] px-3.5
+      border-b border-colors-blue_gray"
+    >
       <div className="flex items-center gap-[15px]">
         <BackIcon size="24px" />
         <div className="flex gap-[10px]">
