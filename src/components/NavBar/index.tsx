@@ -1,6 +1,6 @@
-import BackIcon from '../../assets/BackIcon';
-import PhoneIcon from '../../assets/PhoneIcon';
-import VideoIcon from '../../assets/VideoIcon';
+import BackIcon from '@assets/BackIcon';
+import PhoneIcon from '@assets/PhoneIcon';
+import VideoIcon from '@assets/VideoIcon';
 
 export default function NavBar() {
   return (
@@ -15,7 +15,7 @@ export default function NavBar() {
           />
           <div className="flex-col">
             <p className="body1">ceos.sinchon</p>
-            <p className="body5">CEOS</p>
+            <p className="body5 color-red">CEOS</p>
           </div>
         </div>
       </div>
