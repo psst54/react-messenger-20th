@@ -95,9 +95,10 @@ export default function InputArea({
           });
           setInputValue('');
         }}
+        // [todo] margin 상수화하기
         className={`absolute bottom-0
           flex gap-[8px]
-          w-[347px]
+          w-[calc(100%-28px)]
           bg-blur_gray backdrop-blur-sm rounded-full
           mx-[14px] mb-[6px] pl-[5px] ${paddingRight} py-[4.5px]`}
       >
