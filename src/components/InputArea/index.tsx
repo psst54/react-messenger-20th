@@ -97,6 +97,7 @@ export default function InputArea({
         }}
         className={`absolute bottom-0
           flex gap-[8px]
+          w-[347px]
           bg-blur_gray backdrop-blur-sm rounded-full
           mx-[14px] mb-[6px] pl-[5px] ${paddingRight} py-[4.5px]`}
       >
