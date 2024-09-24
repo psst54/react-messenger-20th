@@ -1,7 +1,14 @@
+import NavBar from '@components/NavBar';
+import InputArea from '@components/InputArea';
+
 function App() {
   return (
-    <div>
-      <h1>20기 프론트엔드 파이팅!!! 디자인과 사이좋게 지내요~~~</h1>
+    <div className="flex items-center justify-center w-dvw h-dvh bg-blue_gray">
+      <div className="flex flex-col w-[375px] h-[812px] rounded-3xl shadow-2xl bg-white">
+        <NavBar />
+        <div className="flex-1">message list</div>
+        <InputArea />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  }
+}
+
+.title1 {
+  @apply text-title1 leading-title1 font-bold;
+}
+
+.title2 {
+  @apply text-title2 leading-title2 font-bold;
+}
+
+.title3 {
+  @apply text-title3 leading-title3 font-semibold;
+}
+
+.title4 {
+  @apply text-title4 leading-title4 font-normal;
+}
+
+.body1 {
+  @apply text-body1 leading-body1 font-bold font-bold;
+}
+
+.body2 {
+  @apply text-body2 leading-body2 font-medium;
+}
+
+.body3 {
+  @apply text-body3 leading-body3 font-normal;
+}
+
+.body4 {
+  @apply text-body4 leading-body4 font-medium;
+}
+
+.body5 {
+  @apply text-body5 leading-body5 font-normal;
+}
+
+.button {
+  @apply text-button leading-button font-semibold;
+}
