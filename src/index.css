@@ -30,7 +30,7 @@
 }
 
 .body2 {
-  @apply text-body2 leading-body2 font-medium;
+  @apply text-body2 leading-body2 font-normal;
 }
 
 .body3 {
@@ -47,4 +47,13 @@
 
 .button {
   @apply text-button leading-button font-semibold;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
 }
