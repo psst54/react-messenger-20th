@@ -9,7 +9,9 @@ function App() {
 
   return (
     <div className="flex items-center justify-center w-dvw h-dvh bg-blue_gray">
-      <div className="flex flex-col w-[375px] h-[812px] rounded-3xl shadow-2xl bg-white">
+      <div className="flex flex-col w-[375px] h-[812px]
+        bg-white rounded-3xl shadow-2xl"
+      >
         <NavBar />
         <MessageList messageList={messageList} userId={userId} />
         <InputArea addMessage={addMessage} userId={userId} />
