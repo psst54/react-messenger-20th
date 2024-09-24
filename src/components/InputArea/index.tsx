@@ -4,6 +4,7 @@ import PictureIcon from '@assets/PictureIcon';
 import SearchIcon from '@assets/SearchIcon';
 import SendIcon from '@assets/SendIcon';
 import StickerIcon from '@assets/StickerIcon';
+import { Message } from '@components/MessageList/MessageItem';
 import { useState } from 'react';
 
 function LeftSide({ isEmpty }: { isEmpty: boolean }) {
@@ -70,13 +71,30 @@ function RightSide({ isEmpty }: { isEmpty: boolean }) {
   );
 }
 
-export default function InputArea() {
+export default function InputArea({
+  addMessage,
+  userId,
+}: {
+  addMessage: (message: Message) => void;
+  userId: string;
+}) {
   const [inputValue, setInputValue] = useState('');
+
   const paddingRight = inputValue ? 'pr-[5px]' : 'pr-[17px]';
 
   return (
     <div className="relative h-[27px]">
       <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          addMessage({
+            id: new Date().toString(),
+            sender: userId,
+            content: inputValue,
+            sentAt: new Date(),
+          });
+          setInputValue('');
+        }}
         className={`absolute bottom-0
           flex gap-[8px]
           w-[347px]
