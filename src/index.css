@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-sans;
+    font-family: 'Pretendard', sans-serif;
+  }
+}
+
 .title1 {
   @apply text-title1 leading-title1 font-bold;
 }
