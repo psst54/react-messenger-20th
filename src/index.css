@@ -48,3 +48,12 @@
 .button {
   @apply text-button leading-button font-semibold;
 }
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+}

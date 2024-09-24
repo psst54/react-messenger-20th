@@ -9,6 +9,7 @@ module.exports = {
         white: '#FFFFFF',
         blue: '#3363ED',
         blue_gray: '#F2F5F7',
+        blur_gray: '#F1F1F2BF',
         red: '#FE0135',
       },
       fontSize: {
