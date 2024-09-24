@@ -1,4 +1,4 @@
-import MessageItem, { Message } from './Message';
+import MessageItem, { Message } from './MessageItem';
 
 const messageList: Message[] = [
   {
@@ -48,10 +48,27 @@ const messageList: Message[] = [
 const userId = 'b';
 
 export default function MessageList() {
+  function isFirst(index: number) {
+    return index === 0 || messageList[index - 1].sender !== messageList[index].sender;
+  }
+
+  function isLast(index: number) {
+    return (
+      index === messageList.length - 1
+      || messageList[index].sender !== messageList[index + 1].sender
+    );
+  }
+
   return (
     <ul className="flex-col flex-1 h-full overflow-auto px-[14px]">
-      {messageList.map((message) => (
-        <MessageItem key={message.id} userId={userId} message={message} />
+      {messageList.map((message, messageIndex) => (
+        <MessageItem
+          key={message.id}
+          userId={userId}
+          message={message}
+          isFirst={isFirst(messageIndex)}
+          isLast={isLast(messageIndex)}
+        />
       ))}
     </ul>
   );
