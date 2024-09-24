@@ -1,16 +1,7 @@
 function App() {
   return (
-    <div>
-      <p className="title1">title1</p>
-      <p className="title2">title2</p>
-      <p className="title3">title3</p>
-      <p className="title4">title4</p>
-
-      <p className="body1">body1</p>
-      <p className="body2">body2</p>
-      <p className="body3">body3</p>
-      <p className="body4">body4</p>
-      <p className="body5">body5</p>
+    <div className="flex items-center justify-center w-dvw h-dvh bg-blue_gray">
+      <div className="w-[375px] h-[812px] rounded-3xl shadow-2xl bg-white" />
     </div>
   );
 }
