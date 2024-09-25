@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
-import MessageItem, { Message } from './MessageItem';
+import { type Message } from 'src/hooks/useMessage';
+import MessageItem from './MessageItem';
 
 export default function MessageList({
   messageList,

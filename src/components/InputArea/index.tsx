@@ -1,6 +1,6 @@
 import { type FormEvent, useState } from 'react';
 
-import { Message } from '@components/MessageList/MessageItem';
+import { type Message } from 'src/hooks/useMessage';
 
 import CameraIcon from '@assets/CameraIcon';
 import MicIcon from '@assets/MicIcon';

@@ -1,6 +1,12 @@
 import { useState } from 'react';
-import { Message } from '@components/MessageList/MessageItem';
 import data from '@assets/messageList';
+
+export interface Message {
+  id: string;
+  sender: string;
+  content: string;
+  sentAt: Date;
+}
 
 export default function useMessage() {
   const [messageList, setMessageList] = useState<Message[]>(data);

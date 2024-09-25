@@ -1,30 +1,6 @@
-export interface Message {
-  id: string;
-  sender: string;
-  content: string;
-  sentAt: Date;
-}
+import { type Message } from 'src/hooks/useMessage';
 
-const messageStyles = {
-  default: 'body2 px-[12px] py-[8px] w-fit rounded-[18px]',
-  myMessage: {
-    default: 'bg-blue text-white rounded-r-[4px]',
-    firstMessage: 'rounded-tr-[18px]',
-    lastMessage: 'rounded-br-[18px]',
-  },
-  otherMessage: {
-    default: 'bg-blue_gray rounded-l-[4px]',
-    firstMessage: 'rounded-tl-[18px]',
-    lastMessage: 'rounded-bl-[18px]',
-  },
-};
-
-function getMarginTopOfMessage(isFirst: boolean) {
-  if (isFirst) {
-    return 'mt-[12px]';
-  }
-  return 'mt-[4px]';
-}
+const defaultMessageText = 'body2 px-[12px] py-[8px] w-fit rounded-[18px]';
 
 function MyMessage({
   message,
@@ -35,19 +11,13 @@ function MyMessage({
   isFirst: boolean;
   isLast: boolean;
 }) {
-  const styles = messageStyles.myMessage;
+  const myMessageStyle = `bg-blue text-white rounded-r-[4px] 
+  ${isFirst ? 'rounded-tr-[18px]' : ''} 
+  ${isLast ? 'rounded-br-[18px]' : ''}`;
 
   return (
-    <li
-      className={`flex gap-[12px] justify-end
-      ${getMarginTopOfMessage(isFirst)}`}
-    >
-      <p
-        className={`${messageStyles.default}
-        ${styles.default}
-        ${isFirst ? styles.firstMessage : ''}
-        ${isLast ? styles.lastMessage : ''}`}
-      >
+    <li className={`flex gap-[12px] justify-end ${isFirst ? 'mt-3' : 'mt-1'}`}>
+      <p className={`${defaultMessageText} ${myMessageStyle}`}>
         {message.content}
       </p>
     </li>
@@ -63,12 +33,15 @@ function OtherMessage({
   isFirst: boolean;
   isLast: boolean;
 }) {
-  const styles = messageStyles.otherMessage;
+  const otherMessageStyle = `bg-blue_gray rounded-l-[4px] 
+  ${isFirst ? 'rounded-tl-[18px]' : ''} 
+  ${isLast ? 'rounded-bl-[18px]' : ''}`;
 
   return (
     <li
-      className={`flex gap-[12px] items-end justify-start
-        ${getMarginTopOfMessage(isFirst)}`}
+      className={`flex gap-[12px] items-end justify-start ${
+        isFirst ? 'mt-3' : 'mt-1'
+      }`}
     >
       <img
         src="profileCEOS.png"
@@ -77,12 +50,7 @@ function OtherMessage({
           isLast ? '' : 'invisible'
         } w-[28px] h-[28px] border border-gray rounded-full`}
       />
-      <p
-        className={`${messageStyles.default}
-        ${styles.default}
-        ${isFirst ? styles.firstMessage : ''}
-        ${isLast ? styles.lastMessage : ''}`}
-      >
+      <p className={`${defaultMessageText} ${otherMessageStyle}`}>
         {message.content}
       </p>
     </li>
