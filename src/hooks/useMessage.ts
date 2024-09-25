@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import data from '@assets/messageList';
+import data from '@assets/messageData';
 
 export interface Message {
   id: string;
@@ -10,6 +10,7 @@ export interface Message {
 
 export default function useMessage() {
   const [messageList, setMessageList] = useState<Message[]>(data);
+  console.log(messageList);
 
   function addMessage(message: Message) {
     setMessageList([...messageList, message]);
