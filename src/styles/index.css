@@ -49,6 +49,10 @@
   @apply text-button leading-button font-semibold;
 }
 
+.caption {
+  @apply text-caption leading-caption font-normal text-dark_gray;
+}
+
 *::-webkit-scrollbar {
   width: 0;
   height: 0;

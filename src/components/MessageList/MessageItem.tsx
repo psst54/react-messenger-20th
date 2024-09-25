@@ -11,7 +11,7 @@ function MyMessage({
   isFirst: boolean;
   isLast: boolean;
 }) {
-  const myMessageStyle = `bg-blue text-white rounded-r-[4px] 
+  const myMessageStyle = `max-w-[256px] bg-blue text-white rounded-r-[4px] 
   ${isFirst ? 'rounded-tr-[18px]' : ''} 
   ${isLast ? 'rounded-br-[18px]' : ''}`;
 
