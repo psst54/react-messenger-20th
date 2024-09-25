@@ -26,11 +26,11 @@
 }
 
 .body1 {
-  @apply text-body1 leading-body1 font-bold font-bold;
+  @apply text-body1 leading-body1 font-bold;
 }
 
 .body2 {
-  @apply text-body2 leading-body2 font-normal;
+  @apply text-body2 leading-body2 font-medium;
 }
 
 .body3 {

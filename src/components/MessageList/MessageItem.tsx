@@ -1,6 +1,6 @@
 import { type Message } from 'src/hooks/useMessage';
 
-const defaultMessageText = 'body2 px-[12px] py-[8px] w-fit rounded-[18px]';
+const defaultMessageText = 'body2 px-[12px] py-[8px] w-fit max-w-[256px] rounded-[18px] break-keep';
 
 function MyMessage({
   message,
@@ -11,7 +11,7 @@ function MyMessage({
   isFirst: boolean;
   isLast: boolean;
 }) {
-  const myMessageStyle = `max-w-[256px] bg-blue text-white rounded-r-[4px] 
+  const myMessageStyle = `bg-blue text-white rounded-r-[4px] 
   ${isFirst ? 'rounded-tr-[18px]' : ''} 
   ${isLast ? 'rounded-br-[18px]' : ''}`;
 
