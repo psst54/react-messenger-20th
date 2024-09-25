@@ -53,11 +53,21 @@
   @apply text-caption leading-caption font-normal text-dark_gray;
 }
 
-*::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+.no-scroll {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  scrollbar-width: none; /* Firefox */
 }
 
-* {
-  scrollbar-width: none; /* Firefox */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 4px;
+  background-color: gray;
 }

@@ -50,7 +50,7 @@ export default function MessageList({
   }
 
   return (
-    <ul className="flex-col flex-1 h-full overflow-auto px-[14px] pb-[25px]">
+    <ul className="no-scroll flex-col flex-1 h-full overflow-auto px-[14px] pb-[25px]">
       <li>
         <ProfileCard otherUser={otherUser} />
       </li>
