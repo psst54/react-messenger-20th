@@ -10,7 +10,6 @@ export interface Message {
 
 export default function useMessage() {
   const [messageList, setMessageList] = useState<Message[]>(data);
-  console.log(messageList);
 
   function addMessage(message: Message) {
     setMessageList([...messageList, message]);
