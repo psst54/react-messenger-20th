@@ -1,8 +1,39 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        icon: '33px',
+        '2px': '2px',
+        '4px': '4px',
+        '5px': '5px',
+        '6px': '6px',
+        '7px': '7px',
+        '8px': '8px',
+        '10px': '10px',
+        '12px': '12px',
+        '14px': '14px',
+        '15px': '15px',
+        '16px': '16px',
+        '17px': '17px',
+        '18px': '18px',
+        '20px': '20px',
+        '25px': '25px',
+        '28px': '28px',
+        '42px': '42px',
+        '49px': '49px',
+        '92px': '92px',
+        '124px': '124px',
+        '256px': '256px',
+        '375px': '375px',
+        '812px': '812px',
+      },
+      borderRadius: {
+        'message-sm': '4px',
+        'message-lg': '18px',
+      },
       colors: {
         black: '#000000',
         dark_gray: '#6E6E6E',

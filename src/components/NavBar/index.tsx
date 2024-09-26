@@ -13,26 +13,30 @@ export default function NavBar({
   return (
     <nav
       className="flex items-center justify-between
-      w-full h-[55px] px-3.5
-      border-b border-colors-blue_gray"
+        w-full h-16 px-4
+        border-b border-colors-blue_gray"
     >
-      <div className="flex items-center gap-[15px]">
+      <div className="flex items-center gap-15px">
         <BackIcon size="24px" />
-        <div className="flex gap-[10px]">
+
+        <div className="flex gap-10px">
           <button type="button" onClick={onToggleUser}>
             <img
               src={otherUser.profileImgUrl}
               alt="user profile"
-              className="w-[33px] h-[33px] rounded-full"
+              className="w-icon h-icon rounded-full"
             />
           </button>
           <div className="flex-col">
-            <p className="body1">{otherUser.name}</p>
-            <p className="body5 color-red">{otherUser.id}</p>
+            <button type="button" onClick={onToggleUser}>
+              <p className="body1">{otherUser.name}</p>
+            </button>
+            <p className="body5">{otherUser.id}</p>
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-[18px]">
+
+      <div className="flex items-center gap-18px">
         <PhoneIcon size="30px" />
         <VideoIcon size="30px" />
       </div>

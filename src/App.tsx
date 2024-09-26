@@ -21,7 +21,7 @@ function App() {
       <div
         className="flex flex-col
         w-full h-full bg-white
-        sm:w-[375px] sm:h-[812px] sm:rounded-3xl sm:shadow-2xl"
+        sm:w-375px sm:h-812px sm:rounded-3xl sm:shadow-2xl"
       >
         <NavBar otherUser={otherUser} onToggleUser={onToggleUser} />
         <MessageList
