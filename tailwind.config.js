@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -8,6 +9,14 @@ module.exports = {
         'm-6': '6px',
         'm-14': '14px',
         'h-42': '42px',
+        '4px': '4px',
+        '8px': '8px',
+        '12px': '12px',
+        'w-message': '256px',
+      },
+      borderRadius: {
+        'message-sm': '4px',
+        'message-lg': '18px',
       },
       colors: {
         black: '#000000',

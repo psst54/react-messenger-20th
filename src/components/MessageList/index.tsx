@@ -4,16 +4,9 @@ import { type Message } from 'src/hooks/useMessage';
 import { type User } from 'src/hooks/userUser';
 
 import ProfileCard from '@components/ProfileCard';
-import MessageItem from './MessageItem';
+import formatDate from 'src/utils/formatDate';
+import UserMessage from './UserMessage';
 import SystemMessage from './SystemMessage';
-
-function formatDate(date:Date) {
-  return new Intl.DateTimeFormat('ko-KR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(date);
-}
 
 export default function MessageList({
   messageList,
@@ -28,11 +21,20 @@ export default function MessageList({
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
-  }, [messageList]);
+  }, [messageList.length]);
 
-  function isFirstOfDate(index:number) {
-    return index === 0 || messageList[index - 1].sentAt.toDateString()
-    !== messageList[index].sentAt.toDateString();
+  function isDifferentDate(a: Date, b: Date) {
+    return a.toDateString() !== b.toDateString();
+  }
+
+  function isStartOfDate(index: number) {
+    const prevMessage = messageList[index - 1];
+    const currentMessage = messageList[index];
+
+    return (
+      index === 0
+       || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
+    );
   }
 
   /**
@@ -43,11 +45,13 @@ export default function MessageList({
    * @returns True if it's the first message or the moment when sender changes, otherwise false
    */
   function isFirst(index: number) {
+    const prevMessage = messageList[index - 1];
+    const currentMessage = messageList[index];
+
     return (
       index === 0 // first message in total
-      || messageList[index - 1].sender !== messageList[index].sender // When the sender changes
-      || messageList[index - 1].sentAt.toDateString()
-        !== messageList[index].sentAt.toDateString() // When the date changes
+      || prevMessage.sender !== currentMessage.sender // When the sender changes
+      || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
     );
   }
 
@@ -59,33 +63,38 @@ export default function MessageList({
    * @returns True if it's the last message or the moment when changes, otherwise false
    */
   function isLast(index: number) {
+    const currentMessage = messageList[index];
+    const nextMessage = messageList[index + 1];
+
     return (
       index === messageList.length - 1 // last message in total
-      || messageList[index].sender !== messageList[index + 1].sender // When the sender changes
-      || messageList[index].sentAt.toDateString()
-        !== messageList[index + 1].sentAt.toDateString() // When the date changes
+      || currentMessage.sender !== nextMessage.sender // When the sender changes
+      || isDifferentDate(currentMessage.sentAt, nextMessage.sentAt) // When the date changes
     );
   }
 
   return (
-    <ul className="no-scroll flex-col flex-1
-      h-full px-[14px] pb-[25px]
-      overflow-auto"
+    <ul
+      className="no-scroll flex-col flex-1
+        h-full px-[14px] pb-[25px]
+        overflow-auto"
     >
       <li>
         <ProfileCard otherUser={otherUser} />
       </li>
       {messageList.map((message, messageIndex) => (
-        <>
-          {isFirstOfDate(messageIndex) && <SystemMessage content={formatDate(message.sentAt)} />}
-          <MessageItem
-            key={message.id}
+        <div key={message.id}>
+          {isStartOfDate(messageIndex) && (
+            <SystemMessage content={formatDate(message.sentAt)} />
+          )}
+          <UserMessage
             userId={userId}
+            otherUser={otherUser}
             message={message}
             isFirst={isFirst(messageIndex)}
             isLast={isLast(messageIndex)}
           />
-        </>
+        </div>
       ))}
       <li ref={messageEndRef} />
     </ul>
