@@ -1,5 +1,9 @@
 import {
-  type FormEvent, useCallback, useRef, useState,
+  type FormEvent,
+  KeyboardEvent,
+  useCallback,
+  useRef,
+  useState,
 } from 'react';
 
 import { type Message } from 'src/hooks/useMessage';
@@ -100,7 +104,7 @@ export default function InputArea({
   const paddingRight = isEmpty ? 'pr-[17px]' : 'pr-[5px]';
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  const onSubmit = useCallback((event: FormEvent) => {
+  function onSubmit(event: FormEvent) {
     event.preventDefault();
 
     const textarea = textareaRef?.current;
@@ -117,18 +121,32 @@ export default function InputArea({
 
     textarea.style.height = '24px'; // [todo] add min height to constant list
     setInputValue('');
-  }, [inputValue]);
+  }
 
-  const onChange = useCallback((e: any) => {
-    const textarea = textareaRef?.current;
-    if (!textarea) {
-      return;
-    }
+  const onChange = useCallback(
+    (e: any) => {
+      const textarea = textareaRef?.current;
+      if (!textarea) {
+        return;
+      }
 
-    textarea.style.height = '24px'; // [todo] add min height to constant list
-    textarea.style.height = `${textarea.scrollHeight}px`;
-    setInputValue(e.target.value);
-  }, [inputValue]);
+      textarea.style.height = '24px'; // [todo] add min height to constant list
+      textarea.style.height = `${textarea.scrollHeight}px`;
+      setInputValue(e.target.value);
+    },
+    [inputValue],
+  );
+
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLTextAreaElement>) => {
+      const isEnterWithoutShift = event.key === 'Enter' && !event.shiftKey;
+      if (isEnterWithoutShift) {
+        event.preventDefault();
+        onSubmit(event);
+      }
+    },
+    [onSubmit],
+  );
 
   return (
     <div className="relative h-[27px]">
@@ -144,8 +162,8 @@ export default function InputArea({
         <LeftSideButton isEmpty={isEmpty} />
         <DynamicTextarea
           textareaRef={textareaRef}
-          onSubmit={onSubmit}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           inputValue={inputValue}
         />
         <RightSideButton isEmpty={isEmpty} />
