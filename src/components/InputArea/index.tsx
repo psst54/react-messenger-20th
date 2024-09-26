@@ -1,4 +1,6 @@
-import { type FormEvent, useRef, useState } from 'react';
+import {
+  type FormEvent, useCallback, useRef, useState,
+} from 'react';
 
 import { type Message } from 'src/hooks/useMessage';
 
@@ -8,6 +10,7 @@ import PictureIcon from '@assets/PictureIcon';
 import SearchIcon from '@assets/SearchIcon';
 import SendIcon from '@assets/SendIcon';
 import StickerIcon from '@assets/StickerIcon';
+import DynamicTextarea from './DynamicTextarea';
 
 const RIGHT_BUTTON_LIST: any[] = [
   {
@@ -97,18 +100,35 @@ export default function InputArea({
   const paddingRight = isEmpty ? 'pr-[17px]' : 'pr-[5px]';
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  function onSubmit(event: FormEvent) {
+  const onSubmit = useCallback((event: FormEvent) => {
     event.preventDefault();
+
+    const textarea = textareaRef?.current;
+    if (!textarea) {
+      return;
+    }
+
     addMessage({
       id: new Date().toString(), // [todo] find better way
       sender: userId,
       content: inputValue,
       sentAt: new Date(),
     });
+
+    textarea.style.height = '24px'; // [todo] add min height to constant list
     setInputValue('');
-    const textarea = textareaRef.current!;
-    textarea.style.height = '20px';
-  }
+  }, [inputValue]);
+
+  const onChange = useCallback((e: any) => {
+    const textarea = textareaRef?.current;
+    if (!textarea) {
+      return;
+    }
+
+    textarea.style.height = '24px'; // [todo] add min height to constant list
+    textarea.style.height = `${textarea.scrollHeight}px`;
+    setInputValue(e.target.value);
+  }, [inputValue]);
 
   return (
     <div className="relative h-[27px]">
@@ -122,19 +142,11 @@ export default function InputArea({
           mx-[14px] mb-[6px] pl-[5px] ${paddingRight} py-[4.5px]`}
       >
         <LeftSideButton isEmpty={isEmpty} />
-        <textarea
-          ref={textareaRef}
-          placeholder="내용을 입력하세요"
-          value={inputValue}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-
-            const textarea = textareaRef.current!;
-            textarea.style.height = '24px';
-            textarea.style.height = `${textarea.scrollHeight}px`;
-            setInputValue(e.target.value);
-          }}
-          className=".body2 flex-1 w-0 h-[24px] max-h-[124px] bg-transparent outline-none overflow-auto resize-none"
+        <DynamicTextarea
+          textareaRef={textareaRef}
+          onSubmit={onSubmit}
+          onChange={onChange}
+          inputValue={inputValue}
         />
         <RightSideButton isEmpty={isEmpty} />
       </form>
