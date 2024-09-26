@@ -1,6 +1,11 @@
 import { User } from 'src/hooks/userUser';
 
 export default function ProfileCard({ otherUser }: { otherUser: User }) {
+  const followedCount = 1000;
+  const postCount = 999;
+  const representativeFollowerId = '누구누구';
+  const followedByKnownCount = 3;
+
   return (
     <div className="flex flex-col items-center p-[20px]">
       <button type="button">
@@ -18,17 +23,19 @@ export default function ProfileCard({ otherUser }: { otherUser: User }) {
 
       <div className="flex flex-col items-center mt-[8px]">
         <div className="flex items-center gap-[8px]">
-          <p className="caption">{`팔로워 ${1000}명`}</p>
+          <p className="caption">{`팔로워 ${followedCount}명`}</p>
           <div className="w-[2px] h-[2px] bg-dark_gray rounded-full" />
-          <p className="caption">{`게시물 ${999}개`}</p>
+          <p className="caption">{`게시물 ${postCount}개`}</p>
         </div>
-        <p className="caption">{`${'누구누구'}님 외 ${987}명이 팔로우합니다`}</p>
+        <p className="caption">{`${representativeFollowerId}님 외 ${followedByKnownCount}명이 팔로우합니다`}</p>
       </div>
 
-      <button type="button" className="bg-blue_gray mt-[14px] px-[17px] py-[6px] rounded-[7px]">
-        <p className="button">프로필 보기</p>
+      <button
+        type="button"
+        className="button bg-blue_gray mt-[14px] px-[17px] py-[6px] rounded-[7px]"
+      >
+        프로필 보기
       </button>
-
     </div>
   );
 }
