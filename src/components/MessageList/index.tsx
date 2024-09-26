@@ -12,10 +12,12 @@ export default function MessageList({
   messageList,
   userId,
   otherUser,
+  reactToMessage,
 }: {
   messageList: Message[];
   userId: string;
   otherUser: User;
+  reactToMessage: any;
 }) {
   const messageEndRef = useRef<HTMLLIElement | null>(null);
 
@@ -32,8 +34,7 @@ export default function MessageList({
     const currentMessage = messageList[index];
 
     return (
-      index === 0
-      || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
+      index === 0 || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt)
     );
   }
 
@@ -52,6 +53,7 @@ export default function MessageList({
       index === 0 // first message in total
       || prevMessage.sender !== currentMessage.sender // When the sender changes
       || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
+      || !!prevMessage?.reactionList
     );
   }
 
@@ -70,6 +72,7 @@ export default function MessageList({
       index === messageList.length - 1 // last message in total
       || currentMessage.sender !== nextMessage.sender // When the sender changes
       || isDifferentDate(currentMessage.sentAt, nextMessage.sentAt) // When the date changes
+      || !!currentMessage?.reactionList
     );
   }
 
@@ -93,6 +96,7 @@ export default function MessageList({
             message={message}
             isFirst={isFirst(messageIndex)}
             isLast={isLast(messageIndex)}
+            reactToMessage={reactToMessage}
           />
         </div>
       ))}

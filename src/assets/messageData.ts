@@ -26,12 +26,14 @@ const data: Message[] = [
     sender: userData[0].id,
     content: '홍대 필로버스에서 진행됩니다.',
     sentAt: new Date(2024, 8, 24),
+    reactionList: [{ emoji: '💖', userIdList: [userData[1].id] }],
   },
   {
     id: '5',
     sender: userData[1].id,
     content: '감사합니다!',
     sentAt: new Date(2024, 8, 24),
+    reactionList: [{ emoji: '💖', userIdList: [userData[0].id] }],
   },
   {
     id: '6',

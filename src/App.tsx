@@ -7,7 +7,7 @@ import useUser from './hooks/userUser';
 import useMessage from './hooks/useMessage';
 
 function App() {
-  const { messageList, addMessage } = useMessage();
+  const { messageList, addMessage, reactToMessage } = useMessage();
   const { user: currentUser, toggleUser: toggleCurrentUser } = useUser(0);
   const { user: otherUser, toggleUser: toggleOtherUser } = useUser(1);
 
@@ -28,6 +28,7 @@ function App() {
           messageList={messageList}
           userId={currentUser.id}
           otherUser={otherUser}
+          reactToMessage={reactToMessage}
         />
         <InputArea addMessage={addMessage} userId={currentUser.id} />
       </div>
