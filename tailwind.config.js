@@ -33,6 +33,7 @@ module.exports = {
         '812px': '812px',
       },
       borderRadius: {
+        '7px': '7px',
         'message-sm': '4px',
         'message-lg': '18px',
       },
