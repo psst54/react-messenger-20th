@@ -19,9 +19,9 @@ const MARGIN_BOTTOM = 6;
 
 const formStyle = `absolute bottom-0
         flex items-center gap-[8px]
-        min-h-h-42
+        min-h-12
         bg-blur_gray backdrop-blur-sm
-        mx-m-14 mb-m-6 pl-[5px]`;
+        mx-4 mb-m-6px pl-[5px]`;
 
 export default function InputArea({
   addMessage,

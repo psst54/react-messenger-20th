@@ -6,12 +6,13 @@ module.exports = {
     extend: {
       spacing: {
         icon: '33px',
-        'm-6': '6px',
-        'm-14': '14px',
-        'h-42': '42px',
         '4px': '4px',
+        '6px': '6px',
         '8px': '8px',
+        '10px': '10px',
         '12px': '12px',
+        '15px': '15px',
+        '18px': '18px',
         'w-message': '256px',
       },
       borderRadius: {
