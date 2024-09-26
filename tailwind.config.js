@@ -22,6 +22,7 @@ module.exports = {
         '20px': '20px',
         '24px': '24px',
         '25px': '25px',
+        '27px': '27px',
         '28px': '28px',
         '42px': '42px',
         '49px': '49px',
