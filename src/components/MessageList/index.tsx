@@ -53,7 +53,7 @@ export default function MessageList({
       index === 0 // first message in total
       || prevMessage.sender !== currentMessage.sender // When the sender changes
       || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
-      || !!prevMessage?.reactionList
+      || !!prevMessage?.reactionList?.length
     );
   }
 
@@ -72,7 +72,7 @@ export default function MessageList({
       index === messageList.length - 1 // last message in total
       || currentMessage.sender !== nextMessage.sender // When the sender changes
       || isDifferentDate(currentMessage.sentAt, nextMessage.sentAt) // When the date changes
-      || !!currentMessage?.reactionList
+      || !!currentMessage?.reactionList?.length
     );
   }
 
