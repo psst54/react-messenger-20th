@@ -23,7 +23,7 @@ export default function NavBar({
             <img
               src={otherUser.profileImgUrl}
               alt="user profile"
-              className="w-[33px] h-[33px] rounded-full"
+              className="w-icon h-icon rounded-full"
             />
           </button>
           <div className="flex-col">

@@ -3,6 +3,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        icon: '33px',
+        'm-6': '6px',
+        'm-14': '14px',
+        'h-42': '42px',
+      },
       colors: {
         black: '#000000',
         dark_gray: '#6E6E6E',
