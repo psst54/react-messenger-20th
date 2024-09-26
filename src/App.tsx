@@ -23,7 +23,11 @@ function App() {
         bg-white rounded-3xl shadow-2xl"
       >
         <NavBar otherUser={otherUser} onToggleUser={onToggleUser} />
-        <MessageList messageList={messageList} userId={currentUser.id} />
+        <MessageList
+          messageList={messageList}
+          userId={currentUser.id}
+          otherUser={otherUser}
+        />
         <InputArea addMessage={addMessage} userId={currentUser.id} />
       </div>
     </div>

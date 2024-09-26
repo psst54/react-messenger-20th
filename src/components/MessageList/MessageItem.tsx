@@ -1,6 +1,6 @@
 import { type Message } from 'src/hooks/useMessage';
 
-const defaultMessageText = 'body2 px-[12px] py-[8px] w-fit rounded-[18px]';
+const defaultMessageText = 'body2 px-[12px] py-[8px] w-fit max-w-[256px] rounded-[18px] break-keep whitespace-pre-wrap';
 
 function MyMessage({
   message,

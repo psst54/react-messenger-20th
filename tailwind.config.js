@@ -23,6 +23,7 @@ module.exports = {
         body4: '12px',
         body5: '12px',
         button: '12px',
+        caption: '14px',
       },
       lineHeight: {
         title1: '145%',
@@ -35,6 +36,7 @@ module.exports = {
         body4: '130%',
         body5: '130%',
         button: '135%',
+        caption: '130%',
       },
     },
   },

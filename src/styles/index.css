@@ -26,11 +26,11 @@
 }
 
 .body1 {
-  @apply text-body1 leading-body1 font-bold font-bold;
+  @apply text-body1 leading-body1 font-bold;
 }
 
 .body2 {
-  @apply text-body2 leading-body2 font-normal;
+  @apply text-body2 leading-body2 font-medium;
 }
 
 .body3 {
@@ -49,11 +49,25 @@
   @apply text-button leading-button font-semibold;
 }
 
-*::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+.caption {
+  @apply text-caption leading-caption font-normal text-dark_gray;
 }
 
-* {
+.no-scroll {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
   scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 4px;
+  background-color: gray;
 }
