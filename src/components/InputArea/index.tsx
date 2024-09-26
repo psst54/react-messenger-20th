@@ -15,7 +15,6 @@ import DynamicTextarea from './DynamicTextarea';
 
 const TEXT_AREA_HEIGHT = 42;
 const MARGIN_HORIZONTAL = 14;
-const MARGIN_BOTTOM = 6;
 
 const formStyle = `absolute bottom-0
         flex items-center gap-8px
@@ -81,7 +80,7 @@ export default function InputArea({
   );
 
   return (
-    <div className={`relative h-[${MARGIN_BOTTOM + TEXT_AREA_HEIGHT / 2}px]`}>
+    <div className="relative h-27px">
       <form
         onSubmit={onSubmit}
         className={formStyle}
