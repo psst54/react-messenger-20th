@@ -18,10 +18,10 @@ const MARGIN_HORIZONTAL = 14;
 const MARGIN_BOTTOM = 6;
 
 const formStyle = `absolute bottom-0
-        flex items-center gap-[8px]
-        min-h-12
+        flex items-center gap-8px
+        min-h-42px
         bg-blur_gray backdrop-blur-sm
-        mx-4 mb-m-6px pl-[5px]`;
+        mx-16px mb-6px pl-5px`;
 
 export default function InputArea({
   addMessage,

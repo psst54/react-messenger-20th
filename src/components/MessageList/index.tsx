@@ -33,7 +33,7 @@ export default function MessageList({
 
     return (
       index === 0
-       || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
+      || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
     );
   }
 
@@ -76,7 +76,7 @@ export default function MessageList({
   return (
     <ul
       className="no-scroll flex-col flex-1
-        h-full px-[14px] pb-[25px]
+        h-full px-14px pb-25px
         overflow-auto"
     >
       <li>

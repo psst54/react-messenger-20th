@@ -2,7 +2,7 @@ import { type Message } from 'src/hooks/useMessage';
 import { User } from 'src/hooks/userUser';
 
 const defaultMessageText = `body2
-  w-fit max-w-w-message px-12px py-8px
+  w-fit max-w-256px px-12px py-8px
   rounded-message-lg
   break-keep whitespace-pre-wrap`;
 
@@ -31,7 +31,7 @@ export default function UserMessage({
 
   return (
     <li
-      className={`flex gap-[12px] items-end
+      className={`flex gap-12px items-end
         ${isMyMessage ? 'justify-end' : 'justify-start'}
         ${isFirst ? 'mt-12px' : 'mt-4px'}`}
     >
@@ -40,11 +40,13 @@ export default function UserMessage({
           src={otherUser.profileImgUrl}
           alt={`${otherUser.name} profile`}
           className={`${isLast ? '' : 'invisible'}
-          w-[28px] h-[28px] border border-gray rounded-full`}
+            w-28px h-28px border border-gray rounded-full`}
         />
       )}
       <p
-        className={`${defaultMessageText} ${isMyMessage ? myMessageStyle : otherMessageStyle}`}
+        className={`${defaultMessageText} ${
+          isMyMessage ? myMessageStyle : otherMessageStyle
+        }`}
       >
         {message.content}
       </p>

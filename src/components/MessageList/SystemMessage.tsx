@@ -3,5 +3,5 @@ export default function SystemMessage({
 }: {
   content: string
 }) {
-  return <p className="body5 mt-[12px] text-center">{content}</p>;
+  return <p className="body5 mt-12px text-center">{content}</p>;
 }

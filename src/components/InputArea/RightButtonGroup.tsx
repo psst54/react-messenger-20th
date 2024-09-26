@@ -21,7 +21,7 @@ const RIGHT_BUTTON_LIST = [
 export default function RightButtonGroup({ isEmpty }: { isEmpty: boolean }) {
   return (
     <div className="flex shrink-0">
-      <div className={`flex gap-[12px] mr-[17px] ${isEmpty ? 'hidden' : ''}`}>
+      <div className={`flex gap-12px mr-17px ${isEmpty ? 'hidden' : ''}`}>
         {RIGHT_BUTTON_LIST.map((button) => (
           <button key={button.label} type="button" aria-label={button.label}>
             <button.icon size="24px" />
@@ -33,7 +33,7 @@ export default function RightButtonGroup({ isEmpty }: { isEmpty: boolean }) {
         type="submit"
         aria-label="Search"
         className={`flex items-center justify-center
-            w-[49px] h-icon mr-[5px] bg-blue rounded-full ${
+            w-49px h-icon mr-5px bg-blue rounded-full ${
               isEmpty ? 'block' : 'hidden'
             }`}
       >

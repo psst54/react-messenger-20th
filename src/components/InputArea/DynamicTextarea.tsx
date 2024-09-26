@@ -1,7 +1,7 @@
 import { ChangeEvent, KeyboardEvent, MutableRefObject } from 'react';
 
 const FLEXIBLE_WIDTH = 'flex-1 w-0'; // Adjust width to take up as much horizontal space as possible
-const HEIGHT = 'h-[20px] max-h-[124px]';
+const HEIGHT = 'h-20px max-h-124px';
 
 const textareaStyle = `body3
   ${FLEXIBLE_WIDTH} ${HEIGHT} bg-transparent
