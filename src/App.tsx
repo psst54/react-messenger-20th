@@ -20,8 +20,8 @@ function App() {
     <div className="flex items-center justify-center w-dvw h-dvh bg-blue_gray">
       <div
         className="flex flex-col
-        w-full h-full bg-white
-        sm:w-375px sm:h-812px sm:rounded-3xl sm:shadow-2xl"
+        w-dvw h-dvh bg-white
+        sm:w-375px sm:max-h-812px sm:rounded-3xl sm:shadow-2xl"
       >
         <NavBar otherUser={otherUser} onToggleUser={onToggleUser} />
         <MessageList
