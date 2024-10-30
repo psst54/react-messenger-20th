@@ -24,7 +24,7 @@ export default function DynamicTextarea({
       placeholder="내용을 입력하세요"
       value={inputValue}
       onChange={onChange}
-      onKeyUp={onKeyDown}
+      onKeyDown={onKeyDown}
       className={textareaStyle}
     />
   );
