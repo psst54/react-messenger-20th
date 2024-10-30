@@ -21,7 +21,7 @@ export default function UserMessage({
   message: Message;
   isFirst: boolean;
   isLast: boolean;
-  reactToMessage: any;
+  reactToMessage: (messageId: string, reactor: string, emoji: string) => void;
 }) {
   const isMyMessage = userId === message.sender;
 
