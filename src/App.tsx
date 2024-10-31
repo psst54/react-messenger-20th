@@ -15,11 +15,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="flex items-center justify-center w-dvw h-dvh h-screen bg-blue_gray">
+    <div className="flex items-center justify-center w-dvw h-svh bg-blue_gray">
       <div
         className="flex flex-col
-        w-dvw h-dvh h-screen bg-white
-        sm:w-375px sm:max-h-812px sm:rounded-3xl sm:shadow-2xl"
+        w-375px h-svh max-h-812px bg-white
+        rounded-3xl shadow-2xl"
       >
         <RouterProvider router={router} />
       </div>
