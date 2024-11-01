@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import type { Message } from 'src/hooks/useMessage';
+import type { Message } from 'src/types/message';
 
 import RightButtonGroup from './RightButtonGroup';
 import LeftButtonGroup from './LeftButtonGroup';

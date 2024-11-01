@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './pages/main';
 import ChatPage from './pages/chat';
 import FollowerPage from './pages/follower';
+import ChatListPage from './pages/chatList';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: '/follower',
     element: <FollowerPage />,
+  },
+  {
+    path: '/chatList',
+    element: <ChatListPage />,
   },
 ]);
 

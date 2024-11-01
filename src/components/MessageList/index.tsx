@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { type Message } from 'src/hooks/useMessage';
+import { type Message } from 'src/types/message';
 import { type User } from 'src/types/user';
 
 import ProfileCard from '@components/ProfileCard';

@@ -1,22 +1,16 @@
 import { useState } from 'react';
-import data from '@assets/userData';
+import { user1, user2 } from '@assets/userData';
 import { type User } from 'src/types/user';
 
 // [todo] remove index
-export default function useUser(index: number) {
-  // temporary index value
-  // [todo] remove userIndex
-  const [userIndex, setUserIndex] = useState<number>(index);
-  const [user, setUser] = useState<User>(data[userIndex]);
+export default function useUser() {
+  const [user, setUser] = useState<User>(user1);
 
   /**
    * change user to next user of list
    */
   function toggleUser() {
-    const newUserIndex = (userIndex + 1) % data.length;
-
-    setUserIndex(newUserIndex);
-    setUser(data[newUserIndex]);
+    setUser(user2);
   }
 
   return { user, toggleUser };

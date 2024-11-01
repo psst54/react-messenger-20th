@@ -1,21 +1,8 @@
 import { useState } from 'react';
-import data from '@assets/messageData';
-
-export interface EmojiReaction {
-  emoji: string;
-  userIdList: string[];
-}
-
-export interface Message {
-  id: string;
-  sender: string;
-  content: string;
-  sentAt: Date;
-  reactionList?: EmojiReaction[];
-}
+import { EmojiReaction, Message } from 'src/types/message';
 
 export default function useMessage() {
-  const [messageList, setMessageList] = useState<Message[]>(data);
+  const [messageList, setMessageList] = useState<Message[]>([]);
 
   function addMessage(message: Message) {
     setMessageList([...messageList, message]);

@@ -1,8 +1,8 @@
 import BackIcon from '@assets/BackIcon';
-import SearchIcon from '@assets/SearchIcon';
 import TrashIcon from '@assets/TrashIcon';
 
 import followerData from '@assets/followerData';
+import SeacrhBar from '@components/SearchBar';
 import { User } from 'src/types/user';
 
 const tabHeaderStyle = 'body2 flex items-center justify-center flex-1';
@@ -25,18 +25,6 @@ function TabHeader() {
         200 팔로잉
       </div>
       <div className={`${tabHeaderStyle} text-dark_gray`}>구독</div>
-    </div>
-  );
-}
-
-function SeacrhBar() {
-  return (
-    <div className="flex items-center gap-4px h-36px bg-blue_gray mx-14px my-14px px-14px py-7px rounded-md">
-      <SearchIcon size="14px" color="#6F7680" />
-      <input
-        placeholder="검색"
-        className="title3 flex-1 bg-transparent border-none outline-none"
-      />
     </div>
   );
 }

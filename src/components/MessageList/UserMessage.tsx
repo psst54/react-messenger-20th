@@ -1,4 +1,4 @@
-import { EmojiReaction, type Message } from 'src/hooks/useMessage';
+import { EmojiReaction, Message } from 'src/types/message';
 import { type User } from 'src/types/user';
 
 const defaultMessageText = `
