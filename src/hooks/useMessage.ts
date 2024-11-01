@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { EmojiReaction, Message } from 'src/types/message';
 
-export default function useMessage() {
-  const [messageList, setMessageList] = useState<Message[]>([]);
+export default function useMessage(initialMessageList: Message[]) {
+  const [messageList, setMessageList] = useState<Message[]>(initialMessageList);
 
   function addMessage(message: Message) {
     setMessageList([...messageList, message]);

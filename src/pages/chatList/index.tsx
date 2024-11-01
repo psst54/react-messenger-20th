@@ -50,7 +50,9 @@ function ChatList() {
   return (
     <ul className="px-14px">
       {chatListdata.map((item) => (
-        <ChatItem key={item.id} data={item} />
+        <a href={`/chat/${item.id}`}>
+          <ChatItem key={item.id} data={item} />
+        </a>
       ))}
     </ul>
   );

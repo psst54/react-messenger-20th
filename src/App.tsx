@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: '/chat',
+    path: '/chat/:id',
     element: <ChatPage />,
   },
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <FollowerPage />,
   },
   {
-    path: '/chatList',
+    path: '/chat',
     element: <ChatListPage />,
   },
 ]);

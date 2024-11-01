@@ -9,17 +9,17 @@ export const user1: User = {
 export const user2: User = {
   id: 'dahye',
   name: '강다혜',
-  profileImgUrl: 'profileCEOS.png',
+  profileImgUrl: '/profileCEOS.png',
 };
 
 export const user3: User = {
   id: 'instragram_name1',
   name: '친구1',
-  profileImgUrl: 'profileBasic.png',
+  profileImgUrl: '/profileBasic.png',
 };
 
 export const user4: User = {
   id: 'instragram_name2',
   name: '친구2',
-  profileImgUrl: 'profileBasic.png',
+  profileImgUrl: '/profileBasic.png',
 };
