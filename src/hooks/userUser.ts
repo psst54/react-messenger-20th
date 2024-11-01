@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import data from '@assets/userData';
-
-export interface User {
-  id: string;
-  name: string;
-  profileImgUrl: string;
-}
+import { type User } from 'src/types/user';
 
 // [todo] remove index
 export default function useUser(index: number) {

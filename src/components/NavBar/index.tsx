@@ -1,7 +1,7 @@
 import BackIcon from '@assets/BackIcon';
 import PhoneIcon from '@assets/PhoneIcon';
 import VideoIcon from '@assets/VideoIcon';
-import { User } from 'src/hooks/userUser';
+import { type User } from 'src/types/user';
 
 export default function NavBar({
   otherUser,

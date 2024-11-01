@@ -1,5 +1,5 @@
 import { EmojiReaction, type Message } from 'src/hooks/useMessage';
-import { User } from 'src/hooks/userUser';
+import { type User } from 'src/types/user';
 
 const defaultMessageText = `
   relative

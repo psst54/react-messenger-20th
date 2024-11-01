@@ -1,4 +1,4 @@
-import { type User } from 'src/hooks/userUser';
+import { User } from 'src/types/user';
 
 const data: User[] = [
   {
