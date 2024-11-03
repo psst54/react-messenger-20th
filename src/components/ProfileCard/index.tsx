@@ -1,4 +1,4 @@
-import { User } from 'src/hooks/userUser';
+import { type User } from 'src/types/user';
 
 export default function ProfileCard({ otherUser }: { otherUser: User }) {
   const followedCount = 1000;

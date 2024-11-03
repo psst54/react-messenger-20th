@@ -1,7 +1,7 @@
 import MicIcon from '@assets/MicIcon';
 import PictureIcon from '@assets/PictureIcon';
 import StickerIcon from '@assets/StickerIcon';
-import SendIcon from '@assets/SendIcon';
+import SendIconFill from '@assets/SendIconFill';
 
 const RIGHT_BUTTON_LIST = [
   {
@@ -37,7 +37,7 @@ export default function RightButtonGroup({ isEmpty }: { isEmpty: boolean }) {
               isEmpty ? 'block' : 'hidden'
             }`}
       >
-        <SendIcon size="24px" />
+        <SendIconFill size="24px" color="#ffffff" />
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { type Message } from 'src/hooks/useMessage';
-import { type User } from 'src/hooks/userUser';
+import { type Message } from 'src/types/message';
+import { type User } from 'src/types/user';
 
 import ProfileCard from '@components/ProfileCard';
 import formatDate from 'src/utils/formatDate';
@@ -25,8 +25,8 @@ export default function MessageList({
     messageEndRef.current?.scrollIntoView();
   }, [messageList.length]);
 
-  function isDifferentDate(a: Date, b: Date) {
-    return a.toDateString() !== b.toDateString();
+  function isDifferentDate(a: string | Date, b: string | Date) {
+    return new Date(a).toDateString() !== new Date(b).toDateString();
   }
 
   function isStartOfDate(index: number) {

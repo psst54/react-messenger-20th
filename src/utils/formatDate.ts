@@ -1,7 +1,7 @@
-export default function formatDate(date: Date) {
+export default function formatDate(date: string | Date) {
   return new Intl.DateTimeFormat('ko-KR', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  }).format(date);
+  }).format(new Date(date));
 }

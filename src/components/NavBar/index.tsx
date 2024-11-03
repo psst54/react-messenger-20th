@@ -1,15 +1,9 @@
 import BackIcon from '@assets/BackIcon';
 import PhoneIcon from '@assets/PhoneIcon';
 import VideoIcon from '@assets/VideoIcon';
-import { User } from 'src/hooks/userUser';
+import { type User } from 'src/types/user';
 
-export default function NavBar({
-  otherUser,
-  onToggleUser,
-}: {
-  otherUser: User;
-  onToggleUser: () => void;
-}) {
+export default function NavBar({ otherUser }: { otherUser: User }) {
   return (
     <nav
       className="flex items-center justify-between
@@ -20,7 +14,7 @@ export default function NavBar({
         <BackIcon size="24px" />
 
         <div className="flex gap-10px">
-          <button type="button" onClick={onToggleUser}>
+          <button type="button">
             <img
               src={otherUser.profileImgUrl}
               alt="user profile"
@@ -28,7 +22,7 @@ export default function NavBar({
             />
           </button>
           <div className="flex-col">
-            <button type="button" onClick={onToggleUser}>
+            <button type="button">
               <p className="body1">{otherUser.name}</p>
             </button>
             <p className="body5">{otherUser.id}</p>

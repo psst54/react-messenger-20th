@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       spacing: {
         icon: '33px',
+        '1px': '1px',
         '2px': '2px',
         '4px': '4px',
         '5px': '5px',
@@ -24,8 +25,15 @@ module.exports = {
         '25px': '25px',
         '27px': '27px',
         '28px': '28px',
+        '30px': '30px',
+        '36px': '36px',
+        '38px': '38px',
         '42px': '42px',
+        '44px': '44px',
+        '48px': '48px',
         '49px': '49px',
+        '54px': '54px',
+        '86px': '86px',
         '92px': '92px',
         '124px': '124px',
         '256px': '256px',

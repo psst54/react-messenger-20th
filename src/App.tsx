@@ -1,36 +1,37 @@
-import { useCallback } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import MainPage from './pages/main';
+import ChatPage from './pages/chat';
+import FollowerPage from './pages/follower';
+import ChatListPage from './pages/chatList';
 
-import NavBar from '@components/NavBar';
-import InputArea from '@components/InputArea';
-import MessageList from '@components/MessageList';
-import useUser from './hooks/userUser';
-import useMessage from './hooks/useMessage';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+  {
+    path: '/chat/:id',
+    element: <ChatPage />,
+  },
+  {
+    path: '/follower',
+    element: <FollowerPage />,
+  },
+  {
+    path: '/chat',
+    element: <ChatListPage />,
+  },
+]);
 
 function App() {
-  const { messageList, addMessage, reactToMessage } = useMessage();
-  const { user: currentUser, toggleUser: toggleCurrentUser } = useUser(0);
-  const { user: otherUser, toggleUser: toggleOtherUser } = useUser(1);
-
-  const onToggleUser = useCallback(() => {
-    toggleCurrentUser();
-    toggleOtherUser();
-  }, [toggleCurrentUser, toggleOtherUser]);
-
   return (
-    <div className="flex items-center justify-center w-dvw h-dvh h-screen bg-blue_gray">
+    <div className="flex items-center justify-center w-dvw h-svh bg-blue_gray">
       <div
         className="flex flex-col
-        w-dvw h-dvh h-screen bg-white
-        sm:w-375px sm:max-h-812px sm:rounded-3xl sm:shadow-2xl"
+        w-375px h-svh max-h-812px bg-white
+        rounded-3xl shadow-2xl"
       >
-        <NavBar otherUser={otherUser} onToggleUser={onToggleUser} />
-        <MessageList
-          messageList={messageList}
-          userId={currentUser.id}
-          otherUser={otherUser}
-          reactToMessage={reactToMessage}
-        />
-        <InputArea addMessage={addMessage} userId={currentUser.id} />
+        <RouterProvider router={router} />
       </div>
     </div>
   );
