@@ -1,5 +1,5 @@
-import { EmojiReaction, type Message } from 'src/hooks/useMessage';
-import { User } from 'src/hooks/userUser';
+import { EmojiReaction, Message } from 'src/types/message';
+import { type User } from 'src/types/user';
 
 const defaultMessageText = `
   relative
@@ -21,7 +21,7 @@ export default function UserMessage({
   message: Message;
   isFirst: boolean;
   isLast: boolean;
-  reactToMessage: any;
+  reactToMessage: (messageId: string, reactor: string, emoji: string) => void;
 }) {
   const isMyMessage = userId === message.sender;
 

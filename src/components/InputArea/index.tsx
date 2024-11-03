@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { type Message } from 'src/hooks/useMessage';
+import type { Message } from 'src/types/message';
 
 import RightButtonGroup from './RightButtonGroup';
 import LeftButtonGroup from './LeftButtonGroup';
@@ -35,38 +35,38 @@ export default function InputArea({
 
   const MIN_TEXTAREA_HEIGHT = '20px';
 
-  function onSubmit(event: FormEvent) {
-    event.preventDefault();
+  const onSubmit = useCallback(
+    (event: FormEvent) => {
+      event.preventDefault();
 
-    const textarea = textareaRef?.current;
-    if (!textarea) {
-      return;
-    }
-
-    addMessage({
-      id: new Date().toString(), // [todo] find better way
-      sender: userId,
-      content: inputValue,
-      sentAt: new Date(),
-    });
-
-    textarea.style.height = MIN_TEXTAREA_HEIGHT;
-    setInputValue('');
-  }
-
-  const onChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>) => {
       const textarea = textareaRef?.current;
       if (!textarea) {
         return;
       }
 
+      addMessage({
+        id: new Date().toString(), // [todo] find better way
+        sender: userId,
+        content: inputValue,
+        sentAt: new Date(),
+      });
+
       textarea.style.height = MIN_TEXTAREA_HEIGHT;
-      textarea.style.height = `${textarea.scrollHeight}px`;
-      setInputValue(e.target.value);
+      setInputValue('');
     },
-    [inputValue],
+    [addMessage, inputValue, userId],
   );
+
+  const onChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = textareaRef?.current;
+    if (!textarea) {
+      return;
+    }
+
+    textarea.style.height = MIN_TEXTAREA_HEIGHT;
+    textarea.style.height = `${textarea.scrollHeight}px`;
+    setInputValue(e.target.value);
+  }, []);
 
   const onKeyDown = useCallback(
     (event: KeyboardEvent<HTMLTextAreaElement>) => {

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { type Message } from 'src/hooks/useMessage';
-import { type User } from 'src/hooks/userUser';
+import { type Message } from 'src/types/message';
+import { type User } from 'src/types/user';
 
 import ProfileCard from '@components/ProfileCard';
 import formatDate from 'src/utils/formatDate';
@@ -17,7 +17,7 @@ export default function MessageList({
   messageList: Message[];
   userId: string;
   otherUser: User;
-  reactToMessage: any;
+  reactToMessage: (messageId: string, reactor: string, emoji: string) => void;
 }) {
   const messageEndRef = useRef<HTMLLIElement | null>(null);
 
@@ -25,8 +25,8 @@ export default function MessageList({
     messageEndRef.current?.scrollIntoView();
   }, [messageList.length]);
 
-  function isDifferentDate(a: Date, b: Date) {
-    return a.toDateString() !== b.toDateString();
+  function isDifferentDate(a: string | Date, b: string | Date) {
+    return new Date(a).toDateString() !== new Date(b).toDateString();
   }
 
   function isStartOfDate(index: number) {
@@ -50,10 +50,10 @@ export default function MessageList({
     const currentMessage = messageList[index];
 
     return (
-      index === 0 // first message in total
-      || prevMessage.sender !== currentMessage.sender // When the sender changes
-      || isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) // When the date changes
-      || !!prevMessage?.reactionList?.length
+      index === 0 || // first message in total
+      prevMessage.sender !== currentMessage.sender || // When the sender changes
+      isDifferentDate(prevMessage.sentAt, currentMessage.sentAt) || // When the date changes
+      !!prevMessage?.reactionList?.length
     );
   }
 
@@ -69,10 +69,10 @@ export default function MessageList({
     const nextMessage = messageList[index + 1];
 
     return (
-      index === messageList.length - 1 // last message in total
-      || currentMessage.sender !== nextMessage.sender // When the sender changes
-      || isDifferentDate(currentMessage.sentAt, nextMessage.sentAt) // When the date changes
-      || !!currentMessage?.reactionList?.length
+      index === messageList.length - 1 || // last message in total
+      currentMessage.sender !== nextMessage.sender || // When the sender changes
+      isDifferentDate(currentMessage.sentAt, nextMessage.sentAt) || // When the date changes
+      !!currentMessage?.reactionList?.length
     );
   }
 

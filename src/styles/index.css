@@ -22,7 +22,7 @@
 }
 
 .title3 {
-  @apply text-title3 leading-title3 font-semibold;
+  @apply text-title3 leading-title3;
 }
 
 .title4 {
