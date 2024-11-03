@@ -18,9 +18,7 @@ export default function ChatPage() {
     (user) => user.id !== currentUser?.id,
   );
 
-  const { messageList, addMessage, reactToMessage } = useMessage(
-    chatData?.messageList || [],
-  );
+  const { messageList, addMessage, reactToMessage } = useMessage(id!);
 
   if (!currentUser || !otherUser) {
     return <div>error</div>;
